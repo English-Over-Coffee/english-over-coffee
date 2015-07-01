@@ -44,3 +44,8 @@ group :development, :test do
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
 end
+
+group :production do
+  # Use rails_12factor as required by Heroku
+  gem 'rails_12factor'
+end
