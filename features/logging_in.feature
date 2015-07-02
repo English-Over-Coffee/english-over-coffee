@@ -3,5 +3,5 @@ Feature: Logging in
 		Given that I am on the homepage
 			And I click on "Sign up"
 		When I fill in the form with the relevent information
-			And I click on "Submit"
+			And I click on the "Sign up" button
 		Then I should be signed in

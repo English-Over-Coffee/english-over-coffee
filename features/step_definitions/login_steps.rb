@@ -7,9 +7,15 @@ When(/^I click on "(.*?)"$/) do |link|
 end
 
 When(/^I fill in the form with the relevent information$/) do
-  pending # express the regexp above with the code you wish you had
+  fill_in('Email', :with => 'teacher@test.com')
+  fill_in('Password', :with => 'password')
+  fill_in('Password confirmation', :with => 'password')
+end
+
+When(/^I click on the "(.*?)" button$/) do |button|
+  click_button button
 end
 
 Then(/^I should be signed in$/) do
-  pending # express the regexp above with the code you wish you had
+  page.has_content?('Signed in successfully.')
 end
