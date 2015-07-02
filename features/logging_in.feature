@@ -1,4 +1,5 @@
 Feature: Logging in
+
 	Scenario: A teacher signs up
 		Given that I am on the homepage
 			And I click on "Sign up"
