@@ -4,11 +4,18 @@
         <ul class="nav navbar-nav">
           <li><%= link_to "English Over Coffee", root_path, id: "logo" %></li>
           <% if teacher_signed_in? %>
-              <li><%= link_to "Students", '#' %></li>
-              <li><%= link_to "Log out", destroy_teacher_session_path, :method => :delete %></li>
+            <li><%= link_to "Students", '#' %></li>
+            <li><%= link_to "Log out", destroy_teacher_session_path, :method => :delete %></li>
+          <% elsif student_signed_in? %>
+            <li><%= link_to "Teachers", '#' %></li>
+            <li><%= link_to "Log out", destroy_student_session_path, :method => :delete %></li>
           <% else %>
-              <li><%= link_to "Sign up", new_teacher_registration_path %></li>
-              <li><%= link_to "Log in",  new_teacher_session_path %></li>
+            <li><p class="navbar-text">Teachers</p></li>
+            <li><%= link_to "Log in",  new_teacher_session_path %></li>
+            <li><%= link_to "Sign up", new_teacher_registration_path, :id => "teacher-sign-up" %></li>
+            <li><p class="navbar-text">Students</p></li>
+            <li><%= link_to "Log in",  new_student_session_path %></li>
+            <li><%= link_to "Sign up", new_student_registration_path, :id => "student-sign-up" %></li>
           <% end %>
         </ul>
       </nav>
