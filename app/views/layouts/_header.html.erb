@@ -1,14 +1,22 @@
-<header class="navbar"> 
+<header class="navbar navbar-default"> 
   <div class="container">
       <nav> 
         <ul class="nav navbar-nav">
           <li><%= link_to "English Over Coffee", root_path, id: "logo" %></li>
           <% if teacher_signed_in? %>
             <li><%= link_to "Students", '#' %></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><p class="navbar-text">Signed in as a teacher</p></li>
             <li><%= link_to "Log out", destroy_teacher_session_path, :method => :delete %></li>
+          </ul>
           <% elsif student_signed_in? %>
             <li><%= link_to "Teachers", '#' %></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><p class="navbar-text">Signed in as a student</p></li>
             <li><%= link_to "Log out", destroy_student_session_path, :method => :delete %></li>
+          </ul>
           <% else %>
             <li><p class="navbar-text">Teachers</p></li>
             <li><%= link_to "Log in",  new_teacher_session_path %></li>
