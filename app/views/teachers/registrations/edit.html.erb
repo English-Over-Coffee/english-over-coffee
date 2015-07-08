@@ -3,92 +3,92 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email, autofocus: true, class: "form-control" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
+    <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>  
+    <%= f.text_field :first_name, class: "form-control" %>  
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>  
+    <%= f.text_field :last_name, class: "form-control" %>  
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :photo %><br />
-    <%= f.text_field :photo %>  
+    <%= f.text_field :photo, class: "form-control" %>  
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :home_town %><br />
-    <%= f.text_field :home_town %>  
+    <%= f.text_field :home_town, class: "form-control" %>  
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :education %><br />
-    <%= f.text_field :education %>  
+    <%= f.text_field :education, class: "form-control" %>  
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :hobbies %><br />
-    <%= f.text_field :hobbies %>  
+    <%= f.text_field :hobbies, class: "form-control" %>  
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :motto %><br />
-    <%= f.text_field :motto %>  
+    <%= f.text_field :motto, class: "form-control" %>  
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :advice %><br />
-    <%= f.text_field :advice %>  
+    <%= f.text_field :advice, class: "form-control" %>  
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :strengths %><br />
-    <%= f.text_field :strengths %>  
+    <%= f.text_field :strengths, class: "form-control" %>  
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :arrived_in_country %><br />
-    <%= f.date_select :arrived_in_country %>  
+    <%= f.date_select :arrived_in_country, class: "form-control" %>  
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :other_languages_spoken %><br />
-    <%= f.text_field :other_languages_spoken %>  
+    <%= f.text_field :other_languages_spoken, class: "form-control" %>  
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :personal_message %><br />
-    <%= f.text_field :personal_message %>  
+    <%= f.text_field :personal_message, class: "form-control" %>  
   </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
+  <div class="form-group">
+    <%= f.submit "Update", class: "btn btn-lg btn-primary" %>
   </div>
 <% end %>
 
