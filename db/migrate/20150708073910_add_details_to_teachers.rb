@@ -2,7 +2,6 @@ class AddDetailsToTeachers < ActiveRecord::Migration
   def change
     add_column :teachers, :first_name, :string
     add_column :teachers, :last_name, :string
-    add_column :teachers, :photo, :string
     add_column :teachers, :home_town, :string
     add_column :teachers, :education, :text
     add_column :teachers, :hobbies, :text
