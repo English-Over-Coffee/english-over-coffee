@@ -9,7 +9,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li><p class="navbar-text">
               <% if (current_teacher.first_name && current_teacher.last_name) %>
-                <%= current_teacher.first_name current_teacher.last_name %>
+                <%= "#{current_teacher.first_name} #{current_teacher.last_name}" %>
               <% else %>
                 Signed in as a teacher
               <% end %></p></li>
@@ -22,7 +22,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li><p class="navbar-text">
               <% if (current_student.first_name && current_student.last_name) %>
-                <%= current_student.first_name current_student.last_name %>
+                <%= "#{current_student.first_name} #{current_student.last_name}" %>
               <% else %>
                 Signed in as a student
               <% end %></p></li>
