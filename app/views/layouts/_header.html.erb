@@ -15,6 +15,7 @@
               <% end %></p></li>
             <li><%= link_to "Edit profile", edit_teacher_registration_path %></li>
             <li><%= link_to "Log out", destroy_teacher_session_path, :method => :delete %></li>
+            <li class="square-image-50"><%= image_tag(current_teacher.avatar.url(:thumb)) %></li>
           </ul>
           <% elsif student_signed_in? %>
             <li><%= link_to "Teachers", '#' %></li>
