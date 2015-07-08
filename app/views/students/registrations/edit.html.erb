@@ -27,6 +27,31 @@
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>  
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>  
+  </div>
+
+  <div class="field">
+    <%= f.label :photo %><br />
+    <%= f.text_field :photo %>  
+  </div>
+
+  <div class="field">
+    <%= f.label :home_town %><br />
+    <%= f.text_field :home_town %>  
+  </div>
+
+  <div class="field">
+    <%= f.label :special_requests %><br />
+    <%= f.text_field :special_requests %>  
+  </div>
+
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
