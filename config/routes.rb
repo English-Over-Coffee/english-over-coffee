@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'teachers/index'
+
+  get 'teachers/show'
+
   devise_for :students
   devise_for :teachers
   root              'pages#home'
