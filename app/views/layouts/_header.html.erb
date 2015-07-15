@@ -13,6 +13,7 @@
               <% else %>
                 Signed in as a teacher
               <% end %></p></li>
+            <li class="navbar-avatar"><%= image_tag(current_teacher.avatar.url(:thumb)) %></li>
             <li><%= link_to "Edit profile", edit_teacher_registration_path %></li>
             <li><%= link_to "Log out", destroy_teacher_session_path, :method => :delete %></li>
           </ul>
