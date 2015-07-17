@@ -3,5 +3,6 @@
 <% @teachers.each do |teacher| %>
   <ul>
     <li><%= teacher.first_name %> <%= teacher.last_name %></li>
+    <li><%= image_tag teacher.avatar.url(:thumb) %></li>
   </ul>
 <% end %>
