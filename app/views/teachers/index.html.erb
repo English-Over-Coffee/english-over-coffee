@@ -1,8 +1,12 @@
 <h1>Teachers#index</h1>
 <p>Find me in app/views/teachers/index.html.erb</p>
 <% @teachers.each do |teacher| %>
-  <ul>
-    <li><%= teacher.first_name %> <%= teacher.last_name %></li>
-    <li><%= image_tag teacher.avatar.url(:thumb) %></li>
-  </ul>
+  <div class="container">
+    <div class="well">
+      <div class="row">
+        <div class="col-xs-2"><%= image_tag teacher.avatar.url(:thumb) %></div>
+        <div class="col-xs-10"><h3><%= teacher.first_name %> <%= teacher.last_name %></h3></div>
+      </div>
+    </div>
+  </div>
 <% end %>
