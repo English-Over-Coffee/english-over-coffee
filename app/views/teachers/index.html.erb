@@ -6,7 +6,8 @@
       <%= image_tag teacher.avatar.url(:square) %>
       <div class="caption">
         <h3><%= teacher.first_name %> <%= teacher.last_name %></h3>
-        <p>This is some text</p>
+        <p><small><%= teacher.education %></small></p>
+        <p><%= teacher.motto %></p>
         <p><a class="btn btn-primary">Profile</a><a class="btn btn-default">Book</a></p>
       </div>
     </div>
