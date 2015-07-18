@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
-  get 'teachers/index'
-
-  get 'teachers/show'
-
   devise_for :students
   devise_for :teachers
-  root              'pages#home'
-  get  'about'   => 'pages#about'
-  get  'contact' => 'pages#contact'
+
+  root                   'pages#home'
+  get  'about'        => 'pages#about'
+  get  'contact'      => 'pages#contact'
+  get  'teachers'     => 'teachers#index'
+  get  'teachers/:id' => 'teachers#show'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
