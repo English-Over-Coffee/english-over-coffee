@@ -1,48 +1,46 @@
 <header class="navbar navbar-default"> 
   <div class="container">
-      <nav> 
-        <ul class="nav navbar-nav">
-          <li><%= link_to "English Over Coffee", root_path, id: "logo" %></li>
-          <% if teacher_signed_in? %>
-            <li><%= link_to "Students", '#' %></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><p class="navbar-text">
-              <% if (current_teacher.first_name && current_teacher.last_name) %>
-                <%= "#{current_teacher.first_name} #{current_teacher.last_name}" %>
-              <% else %>
-                Signed in as a teacher
-              <% end %></p></li>
-            <li class="navbar-avatar"><%= image_tag(current_teacher.avatar.url(:thumb)) %></li>
-            <li><%= link_to "Edit profile", edit_teacher_registration_path %></li>
-            <li><%= link_to "Log out", destroy_teacher_session_path, :method => :delete %></li>
-          </ul>
-          <% elsif student_signed_in? %>
-            <li><%= link_to "Teachers", '#' %></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><p class="navbar-text">
-              <% if (current_student.first_name && current_student.last_name) %>
-                <%= "#{current_student.first_name} #{current_student.last_name}" %>
-              <% else %>
-                Signed in as a student
-              <% end %></p></li>
-            <li><%= link_to "Edit profile", edit_student_registration_path %></li>
-            <li><%= link_to "Log out", destroy_student_session_path, :method => :delete %></li>
-          </ul>
-          <% else %>
-            <li><%= link_to "Teachers", teachers_index_path %></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><p class="navbar-text">Teachers</p></li>
-            <li><%= link_to "Log in",  new_teacher_session_path %></li>
-            <li><%= link_to "Sign up", new_teacher_registration_path, :id => "teacher-sign-up" %></li>
-            <li><p class="navbar-text">Students</p></li>
-            <li><%= link_to "Log in",  new_student_session_path %></li>
-            <li><%= link_to "Sign up", new_student_registration_path, :id => "student-sign-up" %></li>
-          <% end %>
-        </ul>
-      </nav>
-    </div>
+    <nav> 
+      <ul class="nav navbar-nav">
+        <li><%= link_to "English Over Coffee", root_path, id: "logo" %></li>
+        <li><%= link_to "Teachers", teachers_index_path %></li>
+<% if teacher_signed_in? %>
+        <li><%= link_to "Students", '#' %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><p class="navbar-text">
+  <% if (current_teacher.first_name && current_teacher.last_name) %>
+          <%= "#{current_teacher.first_name} #{current_teacher.last_name}" %>
+  <% else %>
+          Signed in as a teacher
+  <% end %>
+        </p></li>
+        <li class="navbar-avatar"><%= image_tag(current_teacher.avatar.url(:thumb)) %></li>
+        <li><%= link_to "Edit profile", edit_teacher_registration_path %></li>
+        <li><%= link_to "Log out", destroy_teacher_session_path, :method => :delete %></li>
+<% elsif student_signed_in? %>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><p class="navbar-text">
+  <% if (current_student.first_name && current_student.last_name) %>
+          <%= "#{current_student.first_name} #{current_student.last_name}" %>
+  <% else %>
+          Signed in as a student
+  <% end %>
+        </p></li>
+        <li><%= link_to "Edit profile", edit_student_registration_path %></li>
+        <li><%= link_to "Log out", destroy_student_session_path, :method => :delete %></li>
+<% else %>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><p class="navbar-text">Teachers</p></li>
+        <li><%= link_to "Log in",  new_teacher_session_path %></li>
+        <li><%= link_to "Sign up", new_teacher_registration_path, :id => "teacher-sign-up" %></li>
+        <li><p class="navbar-text">Students</p></li>
+        <li><%= link_to "Log in",  new_student_session_path %></li>
+        <li><%= link_to "Sign up", new_student_registration_path, :id => "student-sign-up" %></li>
+<% end %>
+      </ul>
+    </nav>
   </div>
 </header>
