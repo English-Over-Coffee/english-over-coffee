@@ -4,12 +4,8 @@
       <ul class="nav navbar-nav">
         <li><%= link_to "English Over Coffee", root_path, id: "logo" %></li>
         <li><%= link_to "Teachers", teachers_path %></li>
-<% if teacher_signed_in? %>
-        <li><%= link_to "Students", '#' %></li>
-<% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-
 <% if signed_in? %>
   <% if teacher_signed_in? %>
         <li>
@@ -22,6 +18,7 @@
           </p>
         </li>
         <li class="navbar-avatar"><%= image_tag(current_teacher.avatar.url(:thumb)) %></li>
+        <li><%= link_to "My Students", '#' %></li>
         <li><%= link_to "Edit profile", edit_teacher_registration_path %></li>
         <li><%= link_to "Log out", destroy_teacher_session_path, :method => :delete %></li>
   <% elsif student_signed_in? %>
