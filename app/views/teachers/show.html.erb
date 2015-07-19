@@ -4,37 +4,41 @@
   </div>
   <div class="col-md-6 col-xs-12">
     <h1><%= @teacher.first_name %> <%= @teacher.last_name %></h1>
+<% if @teacher.education? %>
     <p><%= @teacher.education %></p>
+<% end %>
+<% if @teacher.motto? %>
     <blockquote><p><em><%= "“#{@teacher.motto}”" %></em></p></blockquote>
     <dl class="dl-horizontal">
-    <% if @teacher.home_town? %> 
+<% end %>
+<% if @teacher.home_town? %> 
       <dt>Hometown</dt>
       <dd><%= @teacher.home_town %></dd>
-    <% end %>
-    <% if @teacher.hobbies? %> 
+<% end %>
+<% if @teacher.hobbies? %> 
       <dt>Hobbies</dt>
       <dd><%= @teacher.hobbies %></dd>
-    <% end %>
-    <% if @teacher.advice? %> 
+<% end %>
+<% if @teacher.advice? %> 
       <dt>Advice</dt>
       <dd><%= @teacher.advice %></dd>
-    <% end %>
-    <% if @teacher.strengths? %> 
+<% end %>
+<% if @teacher.strengths? %> 
       <dt>Teaching strengths</dt>
       <dd><%= @teacher.strengths %></dd>
-    <% end %>
-    <% if @teacher.arrived_in_country? %> 
+<% end %>
+<% if @teacher.arrived_in_country? %> 
       <dt>Arrived in Japan</dt>
       <dd><%= @teacher.arrived_in_country.strftime("%-d %B %Y") %></dd>
-    <% end %>
-    <% if @teacher.other_languages_spoken? %> 
+<% end %>
+<% if @teacher.other_languages_spoken? %> 
       <dt>Other languages</dt>
       <dd><%= @teacher.other_languages_spoken %></dd>
-    <% end %>
-    <% if @teacher.personal_message? %> 
+<% end %>
+<% if @teacher.personal_message? %> 
       <dt>Message to students</dt>
       <dd><%= @teacher.personal_message %></dd>
-    <% end %>
+<% end %>
     </dl>
   </div>
 </div>
