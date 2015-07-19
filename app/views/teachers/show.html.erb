@@ -1,7 +1,26 @@
-<h1>Teachers#show</h1>
-<p>Find me in app/views/teachers/show.html.erb</p>>
-<% @teachers.each do |teacher| %>
-  <ul>
-    <li><%= teacher %></li>
-  </ul>
-<% end %>
+<div class="row">
+  <div class="col-md-6 col-xs-12">
+    <%= image_tag @teacher.avatar.url(:square), :class => "img-responsive center-block img-thumbnail" %> 
+  </div>
+  <div class="col-md-6 col-xs-12">
+    <h1><%= @teacher.first_name %> <%= @teacher.last_name %></h1>
+    <p><%= @teacher.education %></p>
+    <blockquote><p><em><%= "“#{@teacher.motto}”" %></em></p></blockquote>
+    <dl class="dl-horizontal">
+      <dt>Hometown</dt>
+      <dd><%= @teacher.home_town %></dd>
+      <dt>Hobbies</dt>
+      <dd><%= @teacher.hobbies %></dd>
+      <dt>Advice</dt>
+      <dd><%= @teacher.advice %></dd>
+      <dt>Teaching strengths</dt>
+      <dd><%= @teacher.strengths %></dd>
+      <dt>Arrived in Japan</dt>
+      <dd><%= @teacher.arrived_in_country.strftime("%-d %B %Y") %></dd>
+      <dt>Other languages</dt>
+      <dd><%= @teacher.other_languages_spoken %></dd>
+      <dt>Message to students</dt>
+      <dd><%= @teacher.personal_message %></dd>
+    </dl>
+  </div>
+</div>

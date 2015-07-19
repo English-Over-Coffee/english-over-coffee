@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get  'about'        => 'pages#about'
   get  'contact'      => 'pages#contact'
   get  'teachers'     => 'teachers#index'
-  get  'teachers/:id' => 'teachers#show'
+  get  'teachers/:id' => 'teachers#show', as: :teacher
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
