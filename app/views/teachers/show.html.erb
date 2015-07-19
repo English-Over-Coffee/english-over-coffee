@@ -7,20 +7,34 @@
     <p><%= @teacher.education %></p>
     <blockquote><p><em><%= "“#{@teacher.motto}”" %></em></p></blockquote>
     <dl class="dl-horizontal">
+    <% if @teacher.home_town? %> 
       <dt>Hometown</dt>
       <dd><%= @teacher.home_town %></dd>
+    <% end %>
+    <% if @teacher.hobbies? %> 
       <dt>Hobbies</dt>
       <dd><%= @teacher.hobbies %></dd>
+    <% end %>
+    <% if @teacher.advice? %> 
       <dt>Advice</dt>
       <dd><%= @teacher.advice %></dd>
+    <% end %>
+    <% if @teacher.strengths? %> 
       <dt>Teaching strengths</dt>
       <dd><%= @teacher.strengths %></dd>
+    <% end %>
+    <% if @teacher.arrived_in_country? %> 
       <dt>Arrived in Japan</dt>
       <dd><%= @teacher.arrived_in_country.strftime("%-d %B %Y") %></dd>
+    <% end %>
+    <% if @teacher.other_languages_spoken? %> 
       <dt>Other languages</dt>
       <dd><%= @teacher.other_languages_spoken %></dd>
+    <% end %>
+    <% if @teacher.personal_message? %> 
       <dt>Message to students</dt>
       <dd><%= @teacher.personal_message %></dd>
+    <% end %>
     </dl>
   </div>
 </div>
