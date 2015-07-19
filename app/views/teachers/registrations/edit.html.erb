@@ -84,7 +84,7 @@
 
   <div class="form-group">
     <%= f.label :personal_message %><br />
-    <%= f.text_field :personal_message, class: "form-control" %>  
+    <%= f.text_area(:personal_message, class: "form-control", rows: 15, "data-provide" => "markdown") %>  
   </div>
 
   <div class="form-group">

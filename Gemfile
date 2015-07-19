@@ -40,6 +40,12 @@ gem 'bootstrap-sass'
 gem 'paperclip', '~> 4.2'
 gem 'aws-sdk', '< 2.0'
 
+# Use rails bootstrap markdown
+gem 'rails-bootstrap-markdown'
+
+# Use redcarpet to render markdown
+gem 'redcarpet'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
