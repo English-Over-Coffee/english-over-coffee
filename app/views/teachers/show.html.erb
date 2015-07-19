@@ -7,10 +7,8 @@
     <p><%= @teacher.education %></p>
     <blockquote><p><em><%= "“#{@teacher.motto}”" %></em></p></blockquote>
     <dl class="dl-horizontal">
-      <dt>Home town</dt>
+      <dt>Hometown</dt>
       <dd><%= @teacher.home_town %></dd>
-      <dt>Education</dt>
-      <dd><%= @teacher.education %></dd>
       <dt>Hobbies</dt>
       <dd><%= @teacher.hobbies %></dd>
       <dt>Advice</dt>
@@ -18,7 +16,7 @@
       <dt>Teaching strengths</dt>
       <dd><%= @teacher.strengths %></dd>
       <dt>Arrived in Japan</dt>
-      <dd><%= @teacher.arrived_in_country %></dd>
+      <dd><%= @teacher.arrived_in_country.strftime("%-d %B %Y") %></dd>
       <dt>Other languages</dt>
       <dd><%= @teacher.other_languages_spoken %></dd>
       <dt>Message to students</dt>
