@@ -13,7 +13,10 @@
     <% if teacher.motto? %>
         <p><%= teacher.motto %></p>
     <% end %>
-        <p><%= link_to "Profile", teacher_url(id: teacher.id), class: "btn btn-primary" %><a class="btn btn-default">Book</a></p>
+        <p>
+          <%= link_to "Profile", teacher_url(id: teacher.id), class: "btn btn-primary" %>
+          <%= link_to "Book", "#", class: "btn btn-default" %>
+        </p>
       </div>
     </div>
   </div>
