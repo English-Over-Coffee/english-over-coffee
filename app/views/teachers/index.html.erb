@@ -11,10 +11,10 @@
       <div class="col-sm-8 col-xs-12">
         <h3><%= teacher.first_name %> <%= teacher.last_name %></h3>
         <% if teacher.education? %>
-          <p><small><%= teacher.education %></small></p>
+          <p><%= teacher.education %></p>
         <% end %>
         <% if teacher.motto? %>
-            <p><%= teacher.motto %></p>
+          <blockquote><%= teacher.motto %></blockquote>
         <% end %>
         <p>
           <%= link_to "Profile", teacher_url(id: teacher.id), class: "btn btn-primary" %>
