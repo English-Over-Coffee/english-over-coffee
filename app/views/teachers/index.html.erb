@@ -9,7 +9,7 @@
         <%= image_tag teacher.avatar.url(:square), class: "img-responsive" %>
       </div>
       <div class="col-sm-8 col-xs-12">
-        <h3><%= teacher.first_name %> <%= teacher.last_name %></h3>
+        <h2><%= teacher.first_name %> <%= teacher.last_name %></h2>
         <% if teacher.education? %>
           <p><%= teacher.education %></p>
         <% end %>
