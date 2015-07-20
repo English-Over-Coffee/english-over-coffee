@@ -14,7 +14,8 @@
         <li>
           <p class="navbar-text">
     <% if (current_teacher.first_name && current_teacher.last_name) %>
-            <%= "#{current_teacher.first_name} #{current_teacher.last_name}" %>
+
+            <%= link_to "#{current_teacher.first_name} #{current_teacher.last_name}", teacher_url(id: current_teacher.id) %>
     <% else %>
             Signed in as a teacher
     <% end %>
