@@ -10,8 +10,8 @@
       </div>
       <div class="panel-body">
         <div class="form-group">
-          <%= f.label :avatar %><br />
-          <%= f.file_field :avatar %>  
+  <%= f.label :avatar %><br />
+  <%= f.file_field :avatar %>  
         </div>
 
         <div class="row">
@@ -26,13 +26,13 @@
           </div>
         </div>
         <div class="form-group">
-<%= f.label :education %><br />
-<%= f.text_field :education, class: "form-control" %>  
+  <%= f.label :education %><br />
+  <%= f.text_field :education, class: "form-control" %>  
         </div>
 
         <div class="form-group">
-<%= f.label :motto %><br />
-<%= f.text_area :motto, class: "form-control", rows: 5 %>  
+  <%= f.label :motto %><br />
+  <%= f.text_area :motto, class: "form-control", rows: 5 %>  
         </div>
       </div>
     </div>
@@ -45,33 +45,33 @@
       </div>
       <div class="panel-body">
         <div class="form-group">
-<%= f.label :hometown %><br />
-<%= f.text_field :hometown, class: "form-control" %>  
+  <%= f.label :hometown %><br />
+  <%= f.text_field :hometown, class: "form-control" %>  
         </div>
 
         <div class="form-group">
-<%= f.label :hobbies %><br />
-<%= f.text_field :hobbies, class: "form-control" %>  
+  <%= f.label :hobbies %><br />
+  <%= f.text_field :hobbies, class: "form-control" %>  
         </div>
 
         <div class="form-group">
-<%= f.label :advice %><br />
-<%= f.text_field :advice, class: "form-control" %>  
+  <%= f.label :advice %><br />
+  <%= f.text_field :advice, class: "form-control" %>  
         </div>
 
         <div class="form-group">
-<%= f.label :strengths %><br />
-<%= f.text_field :strengths, class: "form-control" %>  
+  <%= f.label :strengths %><br />
+  <%= f.text_field :strengths, class: "form-control" %>  
         </div>
 
         <div class="form-group">
-<%= f.label :other_languages_spoken %><br />
-<%= f.text_field :other_languages_spoken, class: "form-control" %>  
+  <%= f.label :other_languages_spoken %><br />
+  <%= f.text_field :other_languages_spoken, class: "form-control" %>  
         </div>
 
         <div class="form-group">
-<%= f.label :personal_message %><br />
-<%= f.text_area(:personal_message, class: "form-control", rows: 15, "data-provide" => "markdown") %>  
+  <%= f.label :personal_message %><br />
+  <%= f.text_area(:personal_message, class: "form-control", rows: 15, "data-provide" => "markdown") %>  
         </div>
       </div>
     </div>
@@ -84,35 +84,36 @@
       </div>
       <div class="panel-body">
         <div class="form-group">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, class: "form-control" %>
+  <%= f.label :email %><br />
+  <%= f.email_field :email, class: "form-control" %>
         </div>
 
-<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-  <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-<% end %>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
 
         <div class="form-group">
-          <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-          <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+  <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+  <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
         </div>
 
         <div class="form-group">
-          <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-          <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
+  <%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
         </div>
 
         <div class="form-group">
-          <%= f.submit "Update", class: "btn btn-lg btn-primary" %>
+  <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+  <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+  <%= f.submit "Update", class: "btn btn-lg btn-primary" %>
         </div>
       </div>
     </div>
   </div>
+<% end %>
 
   <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
     <div class="panel panel-danger">
@@ -127,5 +128,4 @@
     </div>
     <hr />
   </div>
-<% end %>
 </div>
