@@ -1,6 +1,7 @@
 <div class="row">
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name),
-                     html: { method: :put }) do |f| %>
+<%= form_for(resource, as: resource_name,
+                       url: registration_path(resource_name),
+                       html: { method: :put }) do |f| %>
 
   <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
   <%= devise_error_messages! %>
@@ -71,7 +72,8 @@
 
         <div class="form-group">
   <%= f.label :personal_message %><br />
-  <%= f.text_area(:personal_message, class: "form-control", rows: 15, "data-provide" => "markdown") %>  
+  <%= f.text_area(:personal_message, class: "form-control",
+                                     rows: 15, "data-provide" => "markdown") %>  
         </div>
       </div>
     </div>
@@ -99,12 +101,14 @@
 
         <div class="form-group">
   <%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+  <%= f.password_field :password_confirmation, autocomplete: "off",
+                                               class: "form-control" %>
         </div>
 
         <div class="form-group">
   <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
+  <%= f.password_field :current_password, autocomplete: "off",
+                                          class: "form-control" %>
         </div>
 
         <div class="form-group">
@@ -122,7 +126,10 @@
       </div>
       <div class="panel-body">
         <div class="form-group">
-          <%= button_to "Cancel my account", registration_path(resource_name), class: "btn btn-lg btn-danger", data: { confirm: "Are you sure?" }, method: :delete %>
+<%= button_to "Cancel my account", registration_path(resource_name),
+                                   class: "btn btn-lg btn-danger",
+                                   data: { confirm: "Are you sure?" },
+                                   method: :delete %>
         </div>
       </div>
     </div>
