@@ -1,4 +1,9 @@
 <div class="row">
+<% if current_teacher == @teacher %>
+  <div class="col-xs-12">
+    <%= link_to "Edit profile", edit_teacher_registration_path, class: "btn btn-primary pull-right" %>
+  </div>
+<% end %>
   <div class="col-lg-offset-1 col-lg-4 col-md-5 col-sm-6 col-xs-12">
     <%= image_tag @teacher.avatar.url(:square), :class => "img-responsive center-block img-thumbnail" %> 
   </div>
