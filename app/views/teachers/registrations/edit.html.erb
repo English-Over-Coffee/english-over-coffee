@@ -107,18 +107,18 @@
       </div>
     </div>
     <div class="row">
-      <div class="form-group col-xs-6">
-    <%= f.submit "Update", class: "btn btn-lg btn-primary" %>
-  <% end %>
-      </div>
-
-      <div class="col-xs-6">
+      <div class="form-group">
+        <div class="col-xs-6">
+      <%= f.submit "Update", class: "btn btn-lg btn-primary" %>
+    <% end %>
+        </div>
+        <div class="col-xs-6">
     <%= button_to "Cancel my account", registration_path(resource_name),
                                        class: "btn btn-danger pull-right",
                                        data: { confirm: "Are you sure?" },
                                        method: :delete %>
+        </div>
       </div>
     </div>
-    <hr />
   </div>
 </div>
