@@ -1,6 +1,6 @@
-<header class="navbar navbar-default navbar-static-top">
-  <div class="container">
-    <nav> 
+<header>
+  <nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
           <span class="sr-only">Toggle navigation</span>
@@ -8,59 +8,67 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <%= link_to image_tag("eoc-logo.png", alt: "English Over Coffee", class: "pull-left"), root_path, id: "logo" %>
+        <%= link_to image_tag("eoc-logo.png", alt: "English Over Coffee", class: "navbar-left"), root_path, id: "logo" %>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
+        <% if signed_in? %>
+          <ul class="nav navbar-nav visible-xs">
+            <li class="inline navbar-avatar">
+              <%= image_tag(current_teacher.avatar.url(:thumb)) %>
+            </li>
+            <li class="inline-last">
+              <p class="navbar-text">
+                <% if teacher_signed_in? %>
+                  <%= link_to "#{current_teacher.first_name} #{current_teacher.last_name}", teacher_url(id: current_teacher.id) %>
+                <% elsif student_signed_in? %>
+                    <%= "#{current_student.first_name} #{current_student.last_name}" %>
+                <% end %>
+              </p>
+            </li>
+          </ul>
+        <% end %>
         <ul class="nav navbar-nav">
           <li><%= link_to "Teachers", teachers_path %></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-  <% if signed_in? %>
-    <% if teacher_signed_in? %>
-          <li>
-            <p class="navbar-text">
-      <% if (current_teacher.first_name && current_teacher.last_name) %>
-
-              <%= link_to "#{current_teacher.first_name} #{current_teacher.last_name}", teacher_url(id: current_teacher.id) %>
-      <% else %>
-              Signed in as a teacher
-      <% end %>
-            </p>
-          </li>
-          <li class="navbar-avatar"><%= image_tag(current_teacher.avatar.url(:thumb)) %></li>
-          <li><%= link_to "My Students", '#' %></li>
-          <li><%= link_to "Edit profile", edit_teacher_registration_path %></li>
-          <li><%= link_to "Log out", destroy_teacher_session_path, :method => :delete %></li>
-    <% elsif student_signed_in? %>
-          <li>
-            <p class="navbar-text">
-      <% if (current_student.first_name && current_student.last_name) %>
-              <%= "#{current_student.first_name} #{current_student.last_name}" %>
-      <% else %>
-              Signed in as a student
-      <% end %>
-            </p>
-          </li>
-          <li><%= link_to "Edit profile", edit_student_registration_path %></li>
-          <li><%= link_to "Log out", destroy_student_session_path, :method => :delete %></li>
-    <% end %>
-  <% else %>
-          <li class="dropdown">
-            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign up <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><%= link_to "Students", new_student_registration_path, :id => "student-sign-up" %></li>
-              <li><%= link_to "Teachers", new_teacher_registration_path, :id => "teacher-sign-up" %></li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign in <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><%= link_to "Students",  new_student_session_path %></li>
-              <li><%= link_to "Teachers",  new_teacher_session_path %></li>
-            </ul>
-          </li>
-  <% end %>
+          <% if signed_in? %>
+            <% if teacher_signed_in? %>
+              <li class="hidden-xs">
+                <p class="navbar-text">
+                  <%= link_to "#{current_teacher.first_name} #{current_teacher.last_name}", teacher_url(id: current_teacher.id) %>
+                </p>
+              </li>
+              <li class="navbar-avatar hidden-xs"><%= image_tag(current_teacher.avatar.url(:thumb)) %></li>
+              <li><%= link_to "My Students", '#' %></li>
+              <li><%= link_to "Edit profile", edit_teacher_registration_path %></li>
+              <li><%= link_to "Log out", destroy_teacher_session_path, :method => :delete %></li>
+            <% elsif student_signed_in? %>
+              <li>
+                <p class="navbar-text">
+                  <%= "#{current_student.first_name} #{current_student.last_name}" %>
+                </p>
+              </li>
+              <li><%= link_to "Edit profile", edit_student_registration_path %></li>
+              <li><%= link_to "Log out", destroy_student_session_path, :method => :delete %></li>
+            <% end %>
+          <% else %>
+            <li class="dropdown">
+              <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign up <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Students", new_student_registration_path, :id => "student-sign-up" %></li>
+                <li><%= link_to "Teachers", new_teacher_registration_path, :id => "teacher-sign-up" %></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign in <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Students",  new_student_session_path %></li>
+                <li><%= link_to "Teachers",  new_teacher_session_path %></li>
+              </ul>
+            </li>
+          <% end %>
         </ul>
-      </nav>
+      </div>
     </div>
-  </header>
+  </nav>
+</header>

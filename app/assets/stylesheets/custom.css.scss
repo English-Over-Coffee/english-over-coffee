@@ -10,3 +10,13 @@
     text-align: center;
     img { width: 100% }
 }
+
+@media (max-width: 768px) {
+  
+  ul.navbar-nav li.inline {
+    float: left;
+  }
+  ul.navbar-nav li.last-inline + li {
+    clear: both;
+  }
+}
