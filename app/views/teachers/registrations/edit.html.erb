@@ -11,7 +11,7 @@
       </div>
       <div class="panel-body">
         <div class="form-group">
-  <%= f.label :avatar %><br />
+  <%= f.label "Photo" %><br />
   <%= f.file_field :avatar %>  
         </div>
         <div class="row">
@@ -26,11 +26,11 @@
         </div>
         <div class="form-group">
   <%= f.label :education %><br />
-  <%= f.text_field :education, class: "form-control" %>  
+  <%= f.text_area :education, class: "form-control", placeholder: "Bachelor of Arts (Languages), Sydney University\nMaster of Education, Harvard University" %>  
         </div>
         <div class="form-group">
   <%= f.label :motto %><br />
-  <%= f.text_area :motto, class: "form-control", rows: 5 %>  
+  <%= f.text_area :motto, class: "form-control", rows: 2, placeholder: "Assiduus usus uni rei deditus et ingenium et artem saepe vincit." %>  
         </div>
       </div>
     </div>
@@ -42,32 +42,39 @@
       <div class="panel-body">
         <div class="form-group">
     <%= f.label :hometown %><br />
-    <%= f.text_field :hometown, class: "form-control" %>  
+    <%= f.text_field :hometown, class: "form-control", placeholder: "Geneva, Switzerland" %>  
         </div>
 
         <div class="form-group">
     <%= f.label :hobbies %><br />
-    <%= f.text_field :hobbies, class: "form-control" %>  
+    <%= f.text_field :hobbies, class: "form-control", placeholder: "French cooking, tapestry, wakeboarding" %>  
         </div>
 
         <div class="form-group">
     <%= f.label :advice %><br />
-    <%= f.text_field :advice, class: "form-control" %>  
+    <%= f.text_area :advice, class: "form-control", rows: 5, placeholder: "Study while others are sleeping; work while others are loafing; prepare while others are playing; and dream while others are wishing.\n–William Arthur Ward" %>  
         </div>
 
         <div class="form-group">
     <%= f.label :strengths %><br />
-    <%= f.text_field :strengths, class: "form-control" %>  
+    <%= f.text_field :strengths, class: "form-control", placeholder: "Casual conversation, academic writing" %>  
         </div>
 
         <div class="form-group">
     <%= f.label :other_languages_spoken %><br />
-    <%= f.text_field :other_languages_spoken, class: "form-control" %>  
+    <%= f.text_field :other_languages_spoken, class: "form-control", placeholder: "Latin, Esperanto, Pirate" %>  
         </div>
+      </div>
+    </div>
 
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Personal message</h3>
+      </div>
+      <div class="panel-body">
         <div class="form-group">
-    <%= f.label :personal_message %><br />
     <%= f.text_area(:personal_message, class: "form-control",
+                                       placeholder: "Here is your place to sell yourself to potential students. You are able to use markdown to make the content more interesting. Leave a personal message to students that shows off your skills, experience and personality.",
                                        rows: 10, "data-provide" => "markdown") %>  
         </div>
       </div>
