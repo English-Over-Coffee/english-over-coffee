@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :students
+  devise_for :students, :controllers => { :registrations => :registrations }
   devise_for :teachers, :controllers => { :registrations => :registrations }
 
   root                   'pages#home'
@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get  'contact'      => 'pages#contact'
   get  'teachers'     => 'teachers#index'
   get  'teachers/:id' => 'teachers#show', as: :teacher
+  get  'students/:id' => 'students#show', as: :student
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

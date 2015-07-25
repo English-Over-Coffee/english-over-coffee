@@ -1,0 +1,68 @@
+<div class="row">
+<%= form_for(resource, as: resource_name,
+                       url: registration_path(resource_name),
+                       html: { method: :put }) do |f| %>
+
+  <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
+  <%= devise_error_messages! %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Profile</h3>
+      </div>
+      <div class="panel-body">
+
+        <div class="form-group">
+  <%= f.label "Photo" %><br />
+  <%= f.file_field :avatar %>  
+        </div>
+
+        <div class="row">
+          <div class="form-group col-xs-6">
+  <%= f.label :first_name %><br />
+  <%= f.text_field :first_name, autofocus: true, class: "form-control" %>  
+          </div>
+
+          <div class="form-group col-xs-6">
+  <%= f.label :last_name %><br />
+  <%= f.text_field :last_name, class: "form-control" %>  
+          </div>
+        </div>
+
+        <div class="form-group">
+    <%= f.label :hometown %><br />
+    <%= f.text_field :hometown, class: "form-control", placeholder: "Geneva, Switzerland" %>  
+        </div>
+
+        <div class="form-group">
+    <%= f.label :hobbies %><br />
+    <%= f.text_field :hobbies, class: "form-control", placeholder: "French cooking, tapestry, wakeboarding" %>  
+        </div>
+
+        <div class="form-group">
+    <%= f.label :english_level %><br />
+    <%= f.text_field :english_level, class: "form-control", placeholder: "French cooking, tapestry, wakeboarding" %>  
+        </div>
+
+        <div class="form-group">
+    <%= f.label :special_requests %><br />
+    <%= f.text_field :special_requests, class: "form-control", placeholder: "French cooking, tapestry, wakeboarding" %>  
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group">
+        <div class="col-xs-6">
+      <%= f.submit "Update", class: "btn btn-lg btn-primary" %>
+    <% end %>
+        </div>
+        <div class="col-xs-6">
+    <%= button_to "Cancel my account", registration_path(resource_name),
+                                       class: "btn btn-danger pull-right",
+                                       data: { confirm: "Are you sure?" },
+                                       method: :delete %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

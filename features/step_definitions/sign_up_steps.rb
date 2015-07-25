@@ -18,7 +18,7 @@ When(/^I click on the "(.*?)" button$/) do |button|
 end
 
 Then(/^I should be signed in$/) do
-  page.has_content?('Signed in successfully.')
+  page.has_content?('Log out')
 end
 
 Given(/^I click on link with id "(.*?)"$/) do |arg1|
