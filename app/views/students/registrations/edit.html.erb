@@ -30,22 +30,29 @@
 
         <div class="form-group">
     <%= f.label :hometown %><br />
-    <%= f.text_field :hometown, class: "form-control", placeholder: "Geneva, Switzerland" %>  
+    <%= f.text_field :hometown, class: "form-control" %>  
         </div>
 
         <div class="form-group">
     <%= f.label :hobbies %><br />
-    <%= f.text_field :hobbies, class: "form-control", placeholder: "French cooking, tapestry, wakeboarding" %>  
+    <%= f.text_field :hobbies, class: "form-control" %>  
         </div>
 
         <div class="form-group">
     <%= f.label :english_level %><br />
-    <%= f.text_field :english_level, class: "form-control", placeholder: "French cooking, tapestry, wakeboarding" %>  
+    <%= radio_button_tag(:english_level, "none") %>
+    <%= label_tag(:english_level_none, "None") %><br />
+    <%= radio_button_tag(:english_level, "beginner") %>
+    <%= label_tag(:english_level_beginner, "Beginner") %><br />
+    <%= radio_button_tag(:english_level, "intermediate") %>
+    <%= label_tag(:english_level_intermediate, "Intermediate") %><br />
+    <%= radio_button_tag(:english_level, "advanced") %>
+    <%= label_tag(:english_level_advanced, "Advanced") %>
         </div>
 
         <div class="form-group">
     <%= f.label :special_requests %><br />
-    <%= f.text_field :special_requests, class: "form-control", placeholder: "French cooking, tapestry, wakeboarding" %>  
+    <%= f.text_field :special_requests, class: "form-control" %>  
         </div>
       </div>
     </div>
