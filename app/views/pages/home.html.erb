@@ -3,6 +3,7 @@
     <% if teacher_signed_in? %>
       <!-- teacher dashboard -->
       <h1>Dashboard</h1>
+      <%= link_to "Add a location", "#" %>
     <% elsif student_signed_in? %>
       <!-- student dashboard -->
       <h1>Dashboard</h1>
