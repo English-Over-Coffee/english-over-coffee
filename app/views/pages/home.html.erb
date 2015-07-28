@@ -15,8 +15,15 @@
                   <%= image_tag location.avatar.url(:thumb), class: "media-object" %>
                 </div>
                 <div class="media-body">
-                  <h4 class="media-heading"><%= location.name %></h4>
-                  <p><%= link_to "Homepage", location.homepage %></p>
+                  <h4 class="media-heading"><%= link_to location.name, location.homepage %></h4>
+                  <% if location.ward && location.prefecture %>
+                    <%= link_to("http://maps.google.com/?q=#{location.street_address} #{location.ward} #{location.prefecture} #{location.city} #{location.post_code}") do %>
+                    <address>
+                      <%= "#{location.street_address} #{location.ward}, #{location.prefecture}" %><br>
+                      <%= "#{location.city} #{location.post_code}" %>
+                    </address>
+                    <% end %>
+                  <% end %>
                 </div>
               </div>
             <% end %>

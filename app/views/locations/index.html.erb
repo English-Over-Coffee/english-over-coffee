@@ -8,10 +8,17 @@
             <%= image_tag location.avatar.url(:square), class: "img-responsive center-block" %>
           </div>
           <div class="col-sm-8 col-xs-12">
-            <h2><%= location.name %></h2>
+            <h2><%= link_to location.name, location.homepage %></h2>
+            <% if location.ward && location.prefecture %>
+              <%= link_to("http://maps.google.com/?q=#{location.street_address} #{location.ward} #{location.prefecture} #{location.city} #{location.post_code}") do %>
+              <address>
+                <%= "#{location.street_address} #{location.ward}, #{location.prefecture}" %><br>
+                <%= "#{location.city} #{location.post_code}" %>
+              </address>
+              <% end %>
+            <% end %>
             <p><%= link_to "#{location.teacher.first_name} #{location.teacher.last_name}",
                            teacher_path(location.teacher) %></p>
-            <p><%= link_to "Homepage", location.homepage %></p>
           </div>
         </div>
       </div>
