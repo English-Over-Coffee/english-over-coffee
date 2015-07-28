@@ -4,10 +4,15 @@
     <% @locations.each do |location| %>
       <div class="panel panel-default">
         <div class="panel-body">
-          <h2><%= location.name %></h2>
-          <p><%= link_to "#{location.teacher.first_name} #{location.teacher.last_name}",
-                         teacher_path(location.teacher) %></p>
-          <p><%= link_to "Homepage", location.homepage %></p>
+          <div class="col-sm-4 col-xs-12">
+            <%= image_tag location.avatar.url(:square), class: "img-responsive center-block" %>
+          </div>
+          <div class="col-sm-8 col-xs-12">
+            <h2><%= location.name %></h2>
+            <p><%= link_to "#{location.teacher.first_name} #{location.teacher.last_name}",
+                           teacher_path(location.teacher) %></p>
+            <p><%= link_to "Homepage", location.homepage %></p>
+          </div>
         </div>
       </div>
     <% end %>
