@@ -19,9 +19,13 @@ ActiveRecord::Schema.define(version: 20150727153949) do
   create_table "locations", force: :cascade do |t|
     t.string   "name"
     t.string   "homepage"
+    t.integer  "teacher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "locations", ["teacher_id", "created_at"], name: "index_locations_on_teacher_id_and_created_at", using: :btree
+  add_index "locations", ["teacher_id"], name: "index_locations_on_teacher_id", using: :btree
 
   create_table "students", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -84,4 +88,5 @@ ActiveRecord::Schema.define(version: 20150727153949) do
   add_index "teachers", ["email"], name: "index_teachers_on_email", unique: true, using: :btree
   add_index "teachers", ["reset_password_token"], name: "index_teachers_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "locations", "teachers"
 end

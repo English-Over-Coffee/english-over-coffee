@@ -9,8 +9,7 @@ Rails.application.routes.draw do
   get  'teachers'     => 'teachers#index'
   get  'teachers/:id' => 'teachers#show', as: :teacher
   get  'students/:id' => 'students#show', as: :student
-  get  'locations'    => 'locations#index'
-  get  'locations/new'
+  resources :locations
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

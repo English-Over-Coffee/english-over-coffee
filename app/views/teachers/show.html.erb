@@ -1,52 +1,59 @@
 <div class="row">
-<% if current_teacher == @teacher %>
-  <div class="col-xs-12">
-    <%= link_to "Edit profile", edit_teacher_registration_path, class: "btn btn-primary pull-right" %>
-  </div>
-<% end %>
+  <% if current_teacher == @teacher %>
+    <div class="col-xs-12">
+      <%= link_to "Edit profile", edit_teacher_registration_path, class: "btn btn-primary pull-right" %>
+    </div>
+  <% end %>
   <div class="col-lg-offset-1 col-lg-4 col-md-5 col-sm-6 col-xs-12">
     <%= image_tag @teacher.avatar.url(:square), :class => "img-responsive center-block img-thumbnail" %> 
   </div>
   <div class="col-lg-offset-1 col-lg-5 col-md-offset-1 col-md-6 col-sm-6 col-xs-12">
     <h1><%= @teacher.first_name %> <%= @teacher.last_name %></h1>
-<% if @teacher.education? %>
-    <p><%= @teacher.education %></p>
-<% end %>
-<% if @teacher.motto? %>
-    <blockquote><p><em><%= "“#{@teacher.motto}”" %></em></p></blockquote>
-<% end %>
+    <% if @teacher.education? %>
+      <p><%= @teacher.education %></p>
+    <% end %>
+    <% if @teacher.motto? %>
+      <blockquote><p><em><%= "“#{@teacher.motto}”" %></em></p></blockquote>
+    <% end %>
     <dl class="dl-horizontal">
-<% if @teacher.hometown? %> 
-      <dt>Hometown</dt>
-      <dd><%= @teacher.hometown %></dd>
-<% end %>
-<% if @teacher.hobbies? %> 
-      <dt>Hobbies</dt>
-      <dd><%= @teacher.hobbies %></dd>
-<% end %>
-<% if @teacher.advice? %> 
-      <dt>Advice</dt>
-      <dd><%= @teacher.advice %></dd>
-<% end %>
-<% if @teacher.strengths? %> 
-      <dt>Teaching strengths</dt>
-      <dd><%= @teacher.strengths %></dd>
-<% end %>
-<% if @teacher.arrived_in_country? %> 
-      <dt>Arrived in Japan</dt>
-      <dd><%= @teacher.arrived_in_country.strftime("%-d %B %Y") %></dd>
-<% end %>
-<% if @teacher.other_languages_spoken? %> 
-      <dt>Other languages</dt>
-      <dd><%= @teacher.other_languages_spoken %></dd>
-<% end %>
-    </dl>
+      <% if @teacher.hometown? %> 
+        <dt>Hometown</dt>
+        <dd><%= @teacher.hometown %></dd>
+      <% end %>
+      <% if @teacher.hobbies? %> 
+        <dt>Hobbies</dt>
+        <dd><%= @teacher.hobbies %></dd>
+      <% end %>
+      <% if @teacher.advice? %> 
+        <dt>Advice</dt>
+        <dd><%= @teacher.advice %></dd>
+      <% end %>
+      <% if @teacher.strengths? %> 
+        <dt>Teaching strengths</dt>
+        <dd><%= @teacher.strengths %></dd>
+      <% end %>
+      <% if @teacher.arrived_in_country? %> 
+        <dt>Arrived in Japan</dt>
+        <dd><%= @teacher.arrived_in_country.strftime("%-d %B %Y") %></dd>
+      <% end %>
+      <% if @teacher.other_languages_spoken? %> 
+        <dt>Other languages</dt>
+        <dd><%= @teacher.other_languages_spoken %></dd>
+      <% end %>
+      <% if @teacher.locations.exists? %>
+        <dt>Locations</dt>
+          <% @teacher.locations.each do |location| %>
+            <dd><%= link_to location.name, location %></dd>
+          <% end %>
+        </dt>
+      <% end %>
+      </dl>
+    </div>
   </div>
-</div>
-<% if @teacher.personal_message? %> 
-<div class="row">
-  <div class="col-lg-offset-1 col-lg-10 col-xs-12">
-  <%= Markdown.new(@teacher.personal_message).to_html.html_safe %>
-  </div>
-</div>
-<% end %>
+  <% if @teacher.personal_message? %> 
+    <div class="row">
+      <div class="col-lg-offset-1 col-lg-10 col-xs-12">
+        <%= Markdown.new(@teacher.personal_message).to_html.html_safe %>
+      </div>
+    </div>
+  <% end %>

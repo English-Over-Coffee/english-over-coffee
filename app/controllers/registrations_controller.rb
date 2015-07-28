@@ -21,4 +21,6 @@ class RegistrationsController < Devise::RegistrationsController
         edit_student_registration_path # Or :prefix_to_your_route
       end
     end
+
+
 end

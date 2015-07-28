@@ -3,7 +3,26 @@
     <% if teacher_signed_in? %>
       <!-- teacher dashboard -->
       <h1>Dashboard</h1>
-      <%= link_to "Add a location", "#" %>
+      <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Locations</h3>
+          </div>
+          <div class="panel-body">
+            <% if current_teacher.locations.exists? %>
+              <div class="list-group">
+                <% current_teacher.locations.each do |location| %>
+                  <li class="list-group-item">
+                    <h4 class="list-group-item-heading"><%= location.name %></h4>
+                    <p class="list-group-item-text"><%= link_to "Homepage", location.homepage %></p>
+                  </li>
+                <% end %>
+              </div>
+            <% end %>
+            <%= link_to "Add a location", new_location_path, class: "btn btn-primary btn-lg" %>
+          </div>
+        </div>
+      </div>
     <% elsif student_signed_in? %>
       <!-- student dashboard -->
       <h1>Dashboard</h1>
