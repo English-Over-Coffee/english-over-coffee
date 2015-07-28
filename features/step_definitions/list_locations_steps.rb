@@ -8,3 +8,7 @@ Given(/^that I am a teacher on the homepage$/) do
   click_button "Sign in"
   expect(page).to have_text 'Log out'
 end
+
+Given(/^that I am on the locations page$/) do
+  visit '/locations'
+end
