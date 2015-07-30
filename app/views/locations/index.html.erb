@@ -8,32 +8,39 @@
             <%= image_tag location.avatar.url(:square), class: "img-responsive center-block" %>
           </div>
           <div class="col-sm-8 col-xs-12">
-            <h2><%= link_to location.name, location.homepage %></h2>
-            <% if location.ward && location.prefecture %>
-              <%= link_to("http://maps.google.com/?q=#{location.street_address} #{location.ward} #{location.prefecture} #{location.city} #{location.post_code}") do %>
-              <address>
-                <%= "#{location.street_address} #{location.ward}, #{location.prefecture}" %><br>
-                <%= "#{location.city} #{location.post_code}" %>
-              </address>
+            <h3><%= location.name %></h3>
+            <ul class="list-unstyled">
+              <li><span class="glyphicon glyphicon-home"></span>
+                <%= link_to "Homepage", location.homepage %>
+              </li>
+              <% if !location.street_address.empty? && !location.ward.empty? && !location.prefecture.empty? %>
+                  <li><span class="glyphicon glyphicon-map-marker"></span>
+                <%= link_to("http://maps.google.com/?q=#{location.street_address} #{location.ward} #{location.prefecture} #{location.city}") do %>
+                  <%= "#{location.street_address}, #{location.ward}, #{location.prefecture}, #{location.city}" %>
+                  </li>
+                <% end %>
               <% end %>
-            <% end %>
-            <hr />
-            <div class="media">
-              <div class="media-left">
-                <%= image_tag location.teacher.avatar.url(:thumb), class: "media-object" %>
-              </div>
-              <div class="media-body">
-                <p>
-                  <%= link_to "#{location.teacher.first_name} #{location.teacher.last_name}",
-                    teacher_path(location.teacher) %>
-                </p>
-                <p><em><%= location.teacher.education %></em></p> 
-                <p><%= location.teacher.motto %></p>
+              <hr />
+              <div class="media">
+                <div class="media-left">
+                  <%= image_tag location.teacher.avatar.url(:thumb), class: "media-object" %>
+                </div>
+                <div class="media-body">
+                  <h4><%= link_to "#{location.teacher.first_name} #{location.teacher.last_name}",
+                    teacher_path(location.teacher) %></h4>
+                  <ul class="list-unstyled">
+                    <li><span class="glyphicon glyphicon-education"></span>
+                      <%= location.teacher.education %>
+                    </li>
+                    <li>
+                      <em><small>“<%= location.teacher.motto %>”</small></em>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
-</div>
