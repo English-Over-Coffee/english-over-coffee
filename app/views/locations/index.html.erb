@@ -17,8 +17,20 @@
               </address>
               <% end %>
             <% end %>
-            <p><%= link_to "#{location.teacher.first_name} #{location.teacher.last_name}",
-                           teacher_path(location.teacher) %></p>
+            <hr />
+            <div class="media">
+              <div class="media-left">
+                <%= image_tag location.teacher.avatar.url(:thumb), class: "media-object" %>
+              </div>
+              <div class="media-body">
+                <p>
+                  <%= link_to "#{location.teacher.first_name} #{location.teacher.last_name}",
+                    teacher_path(location.teacher) %>
+                </p>
+                <p><em><%= location.teacher.education %></em></p> 
+                <p><%= location.teacher.motto %></p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
