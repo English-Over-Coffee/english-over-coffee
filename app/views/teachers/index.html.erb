@@ -1,29 +1,46 @@
 <div class="row">
-      <div class="col-lg-offset-1 col-lg-10 col-xs-12">
-<h1>Teachers</h1>
-<% @teachers.each do |teacher| %>
-  <% if teacher.first_name? or teacher.last_name? %>
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <div class="col-sm-4 col-xs-12">
-        <%= image_tag teacher.avatar.url(:square), class: "img-responsive center-block" %>
+  <div class="col-lg-offset-1 col-lg-10 col-xs-12">
+    <h1>Teachers</h1>
+    <% @teachers.each do |teacher| %>
+      <% if teacher.first_name? or teacher.last_name? %>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-xs-12 col-sm-6 col-md-4">
+                <%= image_tag teacher.avatar.url(:medium), class: "img-responsive" %>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-8">
+                <h3><%= teacher.first_name %> <%= teacher.last_name %></h3>
+                <ul class="list-unstyled">
+                  <% if teacher.education? %>
+                    <li><span class="glyphicon glyphicon-education"></span> <%= teacher.education %></li>
+                  <% end %>
+                  <% if teacher.locations.exists? %>
+                    <li>
+                      <span class="glyphicon glyphicon-map-marker"></span>
+                      <%= teacher.locations.map { |location|
+                            link_to location.ward, "http://maps.google.com/?q=#{location.street_address} #{location.ward} #{location.prefecture} #{location.city} #{location.post_code}"
+                          }.to_sentence.html_safe %>
+                    </li>
+                    <li>
+                      <%= icon('coffee') %>
+                      <%= teacher.locations.map { |location|
+                            link_to location.name, location.homepage
+                          }.to_sentence.html_safe %>
+                    </li>
+                  <% end %>
+                </ul>
+                <% if teacher.motto? %>
+                  <blockquote><%= teacher.motto %></blockquote>
+                <% end %>
+              <p>
+                <%= link_to "Profile", teacher_url(id: teacher.id), class: "btn btn-primary" %>
+                <%= link_to "Book", "#", class: "btn btn-default" %>
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col-sm-8 col-xs-12">
-        <h2><%= teacher.first_name %> <%= teacher.last_name %></h2>
-        <% if teacher.education? %>
-          <p><%= teacher.education %></p>
-        <% end %>
-        <% if teacher.motto? %>
-          <blockquote><%= teacher.motto %></blockquote>
-        <% end %>
-        <p>
-          <%= link_to "Profile", teacher_url(id: teacher.id), class: "btn btn-primary" %>
-          <%= link_to "Book", "#", class: "btn btn-default" %>
-        </p>
-      </div>
-    </div>
-  </div>
+    <% end %>
   <% end %>
-<% end %>
-  </div>
 </div>
