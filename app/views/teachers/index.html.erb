@@ -15,7 +15,7 @@
                   <% if teacher.education? %>
                     <li><span class="glyphicon glyphicon-education"></span> <%= teacher.education %></li>
                   <% end %>
-                  <% if teacher.locations.exists? %>
+                  <% if !teacher.locations.first.ward.blank? %>
                     <li>
                       <span class="glyphicon glyphicon-map-marker"></span>
                       <%= teacher.locations.map { |location|
