@@ -4,38 +4,40 @@
     <% @locations.each do |location| %>
       <div class="panel panel-default">
         <div class="panel-body">
-          <div class="col-sm-4 col-xs-12">
-            <%= image_tag location.avatar.url(:square), class: "img-responsive center-block" %>
-          </div>
-          <div class="col-sm-8 col-xs-12">
-            <h3><%= location.name %></h3>
-            <ul class="list-unstyled">
-              <li><span class="glyphicon glyphicon-home"></span>
-                <%= link_to "Homepage", location.homepage %>
-              </li>
-              <% if !location.street_address.empty? && !location.ward.empty? && !location.prefecture.empty? %>
-                  <li><span class="glyphicon glyphicon-map-marker"></span>
-                <%= link_to("http://maps.google.com/?q=#{location.street_address} #{location.ward} #{location.prefecture} #{location.city}") do %>
-                  <%= "#{location.street_address}, #{location.ward}, #{location.prefecture}, #{location.city}" %>
-                  </li>
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4">
+              <%= image_tag location.avatar.url(:medium), class: "img-responsive center-block" %>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-8">
+              <h3><%= location.name %></h3>
+              <ul class="list-unstyled">
+                <li><span class="glyphicon glyphicon-home"></span>
+                  <%= link_to "Homepage", location.homepage %>
+                </li>
+                <% if !location.street_address.empty? && !location.ward.empty? && !location.prefecture.empty? %>
+                    <li><span class="glyphicon glyphicon-map-marker"></span>
+                  <%= link_to("http://maps.google.com/?q=#{location.street_address} #{location.ward} #{location.prefecture} #{location.city}") do %>
+                    <%= "#{location.street_address}, #{location.ward}, #{location.prefecture}, #{location.city}" %>
+                    </li>
+                  <% end %>
                 <% end %>
-              <% end %>
-              <hr />
-              <div class="media">
-                <div class="media-left">
-                  <%= image_tag location.teacher.avatar.url(:thumb), class: "media-object" %>
-                </div>
-                <div class="media-body">
-                  <h4><%= link_to "#{location.teacher.first_name} #{location.teacher.last_name}",
-                    teacher_path(location.teacher) %></h4>
-                  <ul class="list-unstyled">
-                    <li><span class="glyphicon glyphicon-education"></span>
-                      <%= location.teacher.education %>
-                    </li>
-                    <li>
-                      <em><small>“<%= location.teacher.motto %>”</small></em>
-                    </li>
-                  </ul>
+                <hr />
+                <div class="media">
+                  <div class="media-left">
+                    <%= image_tag location.teacher.avatar.url(:thumb), class: "media-object" %>
+                  </div>
+                  <div class="media-body">
+                    <h4><%= link_to "#{location.teacher.first_name} #{location.teacher.last_name}",
+                      teacher_path(location.teacher) %></h4>
+                    <ul class="list-unstyled">
+                      <li><span class="glyphicon glyphicon-education"></span>
+                        <%= location.teacher.education %>
+                      </li>
+                      <li>
+                        <em><small>“<%= location.teacher.motto %>”</small></em>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
