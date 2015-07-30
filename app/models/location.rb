@@ -3,7 +3,7 @@ class Location < ActiveRecord::Base
 
   has_attached_file :avatar,
                     :styles => { :square => "512x512#",
-                                 :medium => "300x300>",
+                                 :medium => "300x300#",
                                  :thumb => "100x100#" },
                     :default_url => "/images/:style/no_image.png"
 
