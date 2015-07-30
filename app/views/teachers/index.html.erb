@@ -10,7 +10,7 @@
                 <%= image_tag teacher.avatar.url(:medium), class: "img-responsive" %>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-8">
-                <h3><%= teacher.first_name %> <%= teacher.last_name %></h3>
+                <h2><%= teacher.first_name %> <%= teacher.last_name %></h2>
                 <ul class="list-unstyled">
                   <% if teacher.education? %>
                     <li><span class="glyphicon glyphicon-education"></span> <%= teacher.education %></li>
