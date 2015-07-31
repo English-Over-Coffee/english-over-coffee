@@ -13,9 +13,11 @@
                 <h2><%= teacher.first_name %> <%= teacher.last_name %></h2>
                 <ul class="list-unstyled">
                   <% if teacher.education? %>
-                    <li><span class="glyphicon glyphicon-education"></span> <%= teacher.education %></li>
+                    <li><span class="glyphicon glyphicon-education"></span>
+                      <%= teacher.education %>
+                    </li>
                   <% end %>
-                  <% if !teacher.locations.first.ward.blank? %>
+                  <% if teacher.locations.exists? %>
                     <li>
                       <span class="glyphicon glyphicon-map-marker"></span>
                       <%= teacher.locations.map { |location|
