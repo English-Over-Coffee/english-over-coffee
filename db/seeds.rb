@@ -25,8 +25,8 @@ t = Teacher.create(
                            And cvrst be he that moves my bones.",
   strengths:              "Possibly the greatest English writer ever, good hair",
   other_languages_spoken: "Latin, French",
-  personal_message:       "###Markdown is great\n
-                           We can use it to write in **bold** and *italics*")
+  personal_message:       "###Markdown is great\nWe can use it to write in
+                           **bold** and *italics*")
 t.save!
 
 l = t.locations.create(
@@ -58,14 +58,14 @@ t = Teacher.create(
                            to survive.",
   strengths:              "I give Shakespeare a run for his dollaz.",
   other_languages_spoken: "",
-  personal_message:       "###Markdown is great\nWe can use it to write in 
+  personal_message:       "###Markdown is great\nWe can use it to write in
                            **bold** and *italics*")
 t.avatar = File.open("public/images/tupac.jpg")
 t.save!
 
 l = t.locations.create(
   name:                   "cafe The SUN LIVES HERE",
-  homepage:               "thesunliveshere.wordpress.com",
+  homepage:               "http://thesunliveshere.wordpress.com",
   street_address:         "1-27-33",
   prefecture:             "Sangenjaya",
   ward:                   "Setagaya-ku",
@@ -127,6 +127,7 @@ t = Teacher.create(
                            crumbling down!",
   strengths:              "Climbing trees like a ring-tailed lemur.",
   other_languages_spoken: "",
-  personal_message:       "###Markdown is great\nWe can use it to write in **bold** and *italics*")
+  personal_message:       "###Markdown is great\nWe can use it to write in
+                           **bold** and *italics*")
 t.avatar = File.open("public/images/newman.jpg")
 t.save!
