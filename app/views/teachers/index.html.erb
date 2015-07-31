@@ -7,7 +7,7 @@
           <div class="panel-body">
             <div class="row">
               <div class="col-xs-12 col-sm-6 col-md-4">
-                <%= image_tag teacher.avatar.url(:medium), class: "img-responsive" %>
+                <%= image_tag teacher.avatar.url(:medium), class: "img-responsive center-block" %>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-8">
                 <h2><%= teacher.first_name %> <%= teacher.last_name %></h2>
@@ -37,14 +37,15 @@
                     <%= icon('quote-left') %> <em><%= teacher.motto %></em> <%= icon('quote-right') %>
                   </blockquote>
                 <% end %>
-              <p>
-                <%= link_to "Profile", teacher_url(id: teacher.id), class: "btn btn-primary" %>
-                <%= link_to "Book", "#", class: "btn btn-default" %>
-              </p>
+                <p>
+                  <%= link_to "Profile", teacher_url(id: teacher.id), class: "btn btn-primary" %>
+                  <%= link_to "Book", "#", class: "btn btn-default" %>
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
