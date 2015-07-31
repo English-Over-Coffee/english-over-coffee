@@ -35,7 +35,11 @@
                       <%= location.teacher.education %>
                     </li>
                     <li>
-                      <em><small>“<%= location.teacher.motto %>”</small></em>
+                      <small>
+                        <%= icon('quote-left') %>
+                          <em><%= location.teacher.motto %></em>
+                        <%= icon('quote-right') %>
+                      </small>
                     </li>
                   </ul>
                 </div>

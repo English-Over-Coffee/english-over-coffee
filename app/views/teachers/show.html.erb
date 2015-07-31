@@ -13,7 +13,9 @@
       <p><%= @teacher.education %></p>
     <% end %>
     <% if @teacher.motto? %>
-      <blockquote><p><em><%= "“#{@teacher.motto}”" %></em></p></blockquote>
+      <blockquote>
+        <%= icon('quote-left') %> <em><%= @teacher.motto %></em> <%= icon('quote-right') %>
+      </blockquote>
     <% end %>
     <dl class="dl-horizontal">
       <% if @teacher.hometown? %> 

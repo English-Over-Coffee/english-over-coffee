@@ -33,7 +33,9 @@
                   <% end %>
                 </ul>
                 <% if teacher.motto? %>
-                  <blockquote><%= teacher.motto %></blockquote>
+                  <blockquote>
+                    <%= icon('quote-left') %> <em><%= teacher.motto %></em> <%= icon('quote-right') %>
+                  </blockquote>
                 <% end %>
               <p>
                 <%= link_to "Profile", teacher_url(id: teacher.id), class: "btn btn-primary" %>
