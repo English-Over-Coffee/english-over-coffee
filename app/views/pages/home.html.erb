@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-xs-12">
     <% if teacher_signed_in? %>
-      <!-- teacher dashboard -->
+<!-- teacher dashboard -->
       <h1>Dashboard</h1>
       <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
         <div class="panel panel-default">
@@ -15,13 +15,15 @@
                   <%= image_tag location.avatar.url(:thumb), class: "media-object" %>
                 </div>
                 <div class="media-body">
-                  <h4 class="media-heading"><%= link_to location.name, location.homepage %></h4>
+                  <h4 class="media-heading">
+                    <%= link_to location.name, location.homepage %>
+                  </h4>
                   <% if location.ward && location.prefecture %>
                     <%= link_to("http://maps.google.com/?q=#{location.street_address} #{location.ward} #{location.prefecture} #{location.city} #{location.post_code}") do %>
-                    <address>
-                      <%= "#{location.street_address} #{location.ward}, #{location.prefecture}" %><br>
-                      <%= "#{location.city} #{location.post_code}" %>
-                    </address>
+                      <address>
+                        <%= "#{location.street_address} #{location.ward}, #{location.prefecture}" %><br>
+                        <%= "#{location.city} #{location.post_code}" %>
+                      </address>
                     <% end %>
                   <% end %>
                 </div>
@@ -33,53 +35,48 @@
           </div>
         </div>
       </div>
-    </div>
-  <% elsif student_signed_in? %>
-    <!-- student dashboard -->
-    <h1>Dashboard</h1>
-  <% else %>
-    <!-- visitor page -->
-    <div class="center jumbotron">
-      <div class="row">
-        <div class="col-md-8 col-sm-offset-0 col-sm-7 col-xs-offset-1 col-xs-10">
-          <h1>English Over Coffee</h1>
-          <p>
-            An app for English as a second language tutors and students to keep track of
-            their lessons, including bookings, vocabulary, phrases, pronunciation etc.
-          </p>
-          <p>
-            <%= link_to "Find teachers", teachers_path, class: "btn btn-primary btn-lg" %>
-            <%= link_to "Browse locations", locations_path, class: "btn btn-primary btn-lg" %>
-          </p>
-        </div>
-        <div class="col-md-4 col-sm-offset-0 col-sm-5 col-xs-offset-1 col-xs-10">
-          <span class="visible-xs"><hr /></span>
-          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-            <%= devise_error_messages! %>
-            <div class="form-group">
-              <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Your email" %>
-            </div>
-
-            <div class="form-group">
-              <% if @minimum_password_length %>
-              <em>(<%= @minimum_password_length %> characters minimum)</em>
-              <% end %>
-              <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Create password" %>
-            </div>
-
-            <div class="form-group">
-              <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirm password" %>
-            </div>
-
-            <div class="form-group">
-              <%= f.submit "Sign up as a student", class: "btn btn-lg btn-block btn-primary" %>
-            </div>
-          <%= link_to "Sign up as a teacher", new_teacher_registration_path %>
-          <hr />
+    <% elsif student_signed_in? %>
+<!-- student dashboard -->
+      <h1>Dashboard</h1>
+    <% else %>
+<!-- visitor page -->
+      <div class="center jumbotron">
+        <div class="row">
+          <div class="col-md-8 col-sm-offset-0 col-sm-7 col-xs-offset-1 col-xs-10">
+            <h1>English Over Coffee</h1>
+            <p>
+              An app for English as a second language tutors and students to keep track of
+              their lessons, including bookings, vocabulary, phrases, pronunciation etc.
+            </p>
+            <p>
+              <%= link_to "Find teachers", teachers_path, class: "btn btn-primary btn-lg" %>
+              <%= link_to "Browse locations", locations_path, class: "btn btn-primary btn-lg" %>
+            </p>
+          </div>
+          <div class="col-md-4 col-sm-offset-0 col-sm-5 col-xs-offset-1 col-xs-10">
+            <h3>Student sign up</h3>
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <%= devise_error_messages! %>
+              <div class="form-group">
+                <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Your email" %>
+              </div>
+              <div class="form-group">
+                <% if @minimum_password_length %>
+                  <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %>
+                <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Create password" %>
+              </div>
+              <div class="form-group">
+                <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirm password" %>
+              </div>
+              <div class="form-group">
+                <%= f.submit "Sign up", class: "btn btn-lg btn-block btn-primary" %>
+              </div>
+              <%= link_to "Sign up as a teacher", new_teacher_registration_path %>
+            <% end %>
           </div>
         </div>
-      <% end %>
-    </div>
-  <% end %>
+      </div>
+    <% end %>
   </div>
-  </div>
+</div>

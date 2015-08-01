@@ -66,7 +66,23 @@
             <% end %>
           <% else %>
 
-            <div class="btn-group">
+            <li class="dropdown visible-xs">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign up <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Students", new_student_registration_path, :id => "student-sign-up" %></li>
+                <li><%= link_to "Teachers", new_teacher_registration_path, :id => "teacher-sign-up" %></li>
+              </ul>
+            </li>
+
+            <li class="dropdown visible-xs">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign in <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Students",  new_student_session_path %></li>
+                <li><%= link_to "Teachers",  new_teacher_session_path %></li>
+              </ul>
+            </li>
+
+            <div class="btn-group hidden-xs">
               <button type="button" class="btn btn-primary dropdown-toggle navbar-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Sign up <span class="caret"></span>
               </button>
@@ -75,7 +91,8 @@
                 <li><%= link_to "Teachers", new_teacher_registration_path, :id => "teacher-sign-up" %></li>
               </ul>
             </div>
-            <div class="btn-group">
+
+            <div class="btn-group hidden-xs">
               <button type="button" class="btn btn-default dropdown-toggle navbar-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Sign in <span class="caret"></span>
               </button>
