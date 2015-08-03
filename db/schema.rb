@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150728135152) do
+ActiveRecord::Schema.define(version: 20150803183929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer  "length"
+    t.integer  "resource_id"
+  end
+
+  add_index "bookings", ["resource_id"], name: "index_bookings_on_resource_id", using: :btree
 
   create_table "locations", force: :cascade do |t|
     t.string   "name"
@@ -35,6 +44,10 @@ ActiveRecord::Schema.define(version: 20150728135152) do
 
   add_index "locations", ["teacher_id", "created_at"], name: "index_locations_on_teacher_id_and_created_at", using: :btree
   add_index "locations", ["teacher_id"], name: "index_locations_on_teacher_id", using: :btree
+
+  create_table "resources", force: :cascade do |t|
+    t.string "name"
+  end
 
   create_table "students", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -97,5 +110,6 @@ ActiveRecord::Schema.define(version: 20150728135152) do
   add_index "teachers", ["email"], name: "index_teachers_on_email", unique: true, using: :btree
   add_index "teachers", ["reset_password_token"], name: "index_teachers_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "bookings", "resources"
   add_foreign_key "locations", "teachers"
 end

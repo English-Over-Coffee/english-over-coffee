@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :resources do
+	  resources :bookings
+	end
   devise_for :students, :controllers => { :registrations => :registrations }
   devise_for :teachers, :controllers => { :registrations => :registrations }
 
