@@ -2,7 +2,7 @@
   <%= devise_error_messages! %>
   <div class="container">
     <div class="col-lg-offset-4 col-lg-4 col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8">
-      <h2>Sign up</h2>
+      <h2>Sign up as a student</h2>
       <div class="form-group">
         <%= f.label :email %><br />
         <%= f.email_field :email, autofocus: true, class: "form-control" %>
@@ -22,7 +22,7 @@
       </div>
 
       <div class="form-group">
-        <%= f.submit "Sign up", class: "btn btn-lg btn-primary" %>
+        <%= f.submit "Create an account", class: "btn btn-lg btn-primary" %>
       </div>
     <%= render "students/shared/links" %>
     <hr />
