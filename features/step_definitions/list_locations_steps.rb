@@ -5,10 +5,10 @@ Given(/^that I am a teacher on the homepage$/) do
   visit '/teachers/sign_in'
   fill_in "Email", :with => email
   fill_in "Password", :with => password
-  click_button "Sign in"
-  expect(page).to have_text 'Log out'
+  click_button "sign-in-submit-button"
+  expect(page).to have_text 'Teacher dashboard'
 end
 
-Given(/^that I am on the locations page$/) do
-  visit '/locations'
+Given(/^I create a location$/) do
+  Teacher.find_by(email: "test@test.com").locations.new(name: "Test location", homepage: "http://www.test.com/").save!
 end

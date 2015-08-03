@@ -1,5 +1,5 @@
 class LocationsController < ApplicationController
-  before_action :authenticate_teacher!, only: [:new, :create, :destroy]
+  before_action :authenticate_teacher!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @locations = Location.all
@@ -17,6 +17,21 @@ class LocationsController < ApplicationController
       else
         render '/'
       end
+  end
+
+  def edit
+    @location = current_teacher.locations.find params[:id]
+  end
+
+  def update
+    @location = current_teacher.locations.find params[:id]
+    if @location.update_attributes location_params
+      flash[:success] = "Location updated!"
+      redirect_to '/'
+    else
+      flash[:failure] = "Update failed!"
+      render '/'
+    end
   end
 
   def destroy
