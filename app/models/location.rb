@@ -1,5 +1,5 @@
 class Location < ActiveRecord::Base
-  belongs_to :teacher, dependent: :destroy
+  belongs_to :teacher
 
   has_attached_file :avatar,
                     :styles => { :square => "512x512#",

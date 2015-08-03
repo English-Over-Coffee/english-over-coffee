@@ -15,7 +15,7 @@ class LocationsController < ApplicationController
         flash[:success] = "Location created!"
         redirect_to root_url
       else
-        render '/'
+        render root_url
       end
   end
 
@@ -27,14 +27,17 @@ class LocationsController < ApplicationController
     @location = current_teacher.locations.find params[:id]
     if @location.update_attributes location_params
       flash[:success] = "Location updated!"
-      redirect_to '/'
+      redirect_to root_url
     else
       flash[:failure] = "Update failed!"
-      render '/'
+      render root_url
     end
   end
 
   def destroy
+    @location = current_teacher.locations.find(params[:id]).destroy
+    flash[:success] = "Location deleted!"
+    redirect_to root_url
   end
 
   private
