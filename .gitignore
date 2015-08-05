@@ -14,3 +14,4 @@
 
 # Ignore development environment variabls.
 .env
+tags
