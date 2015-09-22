@@ -2,6 +2,8 @@ class Teacher < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :locations, dependent: :destroy
+  has_many :lessons
+  has_many :students, through: :lessons
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable

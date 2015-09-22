@@ -11,10 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150728135152) do
+ActiveRecord::Schema.define(version: 20150922030637) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "lessons", force: :cascade do |t|
+    t.datetime "lesson_datetime"
+    t.string   "textbook_position"
+    t.integer  "teacher_id"
+    t.integer  "student_id"
+    t.integer  "location_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "lessons", ["location_id"], name: "index_lessons_on_location_id", using: :btree
+  add_index "lessons", ["student_id"], name: "index_lessons_on_student_id", using: :btree
+  add_index "lessons", ["teacher_id"], name: "index_lessons_on_teacher_id", using: :btree
 
   create_table "locations", force: :cascade do |t|
     t.string   "name"
@@ -35,6 +49,19 @@ ActiveRecord::Schema.define(version: 20150728135152) do
 
   add_index "locations", ["teacher_id", "created_at"], name: "index_locations_on_teacher_id_and_created_at", using: :btree
   add_index "locations", ["teacher_id"], name: "index_locations_on_teacher_id", using: :btree
+
+  create_table "phrases", force: :cascade do |t|
+    t.string   "phrase"
+    t.integer  "teacher_id"
+    t.integer  "student_id"
+    t.integer  "lesson_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "phrases", ["lesson_id"], name: "index_phrases_on_lesson_id", using: :btree
+  add_index "phrases", ["student_id"], name: "index_phrases_on_student_id", using: :btree
+  add_index "phrases", ["teacher_id"], name: "index_phrases_on_teacher_id", using: :btree
 
   create_table "students", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -97,5 +124,27 @@ ActiveRecord::Schema.define(version: 20150728135152) do
   add_index "teachers", ["email"], name: "index_teachers_on_email", unique: true, using: :btree
   add_index "teachers", ["reset_password_token"], name: "index_teachers_on_reset_password_token", unique: true, using: :btree
 
+  create_table "vocabularies", force: :cascade do |t|
+    t.string   "word"
+    t.integer  "teacher_id"
+    t.integer  "student_id"
+    t.integer  "lesson_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "vocabularies", ["lesson_id"], name: "index_vocabularies_on_lesson_id", using: :btree
+  add_index "vocabularies", ["student_id"], name: "index_vocabularies_on_student_id", using: :btree
+  add_index "vocabularies", ["teacher_id"], name: "index_vocabularies_on_teacher_id", using: :btree
+
+  add_foreign_key "lessons", "locations"
+  add_foreign_key "lessons", "students"
+  add_foreign_key "lessons", "teachers"
   add_foreign_key "locations", "teachers"
+  add_foreign_key "phrases", "lessons"
+  add_foreign_key "phrases", "students"
+  add_foreign_key "phrases", "teachers"
+  add_foreign_key "vocabularies", "lessons"
+  add_foreign_key "vocabularies", "students"
+  add_foreign_key "vocabularies", "teachers"
 end
