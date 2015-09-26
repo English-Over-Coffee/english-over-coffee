@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get  'teachers'     => 'teachers#index'
   get  'teachers/:id' => 'teachers#show', as: :teacher
   get  'students/:id' => 'students#show', as: :student
+  get  'lessons/:id'  => 'lesson#show', as: :lesson
   resources :locations
 
   # The priority is based upon order of creation: first created -> highest priority.
