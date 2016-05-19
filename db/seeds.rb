@@ -5,6 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+#
+
+Teacher.all.each do |teacher|
+  teacher.destroy
+end
 
 t = Teacher.create(
   email:                  "william.shakespeare@teacher.com",
