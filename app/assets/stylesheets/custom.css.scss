@@ -1,3 +1,8 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
 .navbar-avatar {
     background-color: white;
     border: 1px solid #d9d9d9;
@@ -19,4 +24,8 @@
   ul.navbar-nav li.last-inline + li {
     clear: both;
   }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Merriweather', serif;
 }
