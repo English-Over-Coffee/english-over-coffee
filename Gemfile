@@ -73,3 +73,5 @@ group :production do
   # Use rails_12factor as required by Heroku
   gem 'rails_12factor'
 end
+
+gem 'puma'
