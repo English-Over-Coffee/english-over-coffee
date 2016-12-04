@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   devise_for :students, :controllers => { :registrations => :registrations }
   devise_for :teachers, :controllers => { :registrations => :registrations }
 
-  root                   'pages#home'
+  root                   'pages#splash'
+  get  'home'         => 'pages#home'
   get  'about'        => 'pages#about'
   get  'contact'      => 'pages#contact'
   get  'teachers'     => 'teachers#index'
